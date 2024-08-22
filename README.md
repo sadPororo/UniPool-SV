@@ -1,2 +1,3 @@
-# Uni.pool-SV
-Universal Pooling Method for Speaker Verification Utilizing Pre-trained Multi-layer Features
+# Universal Pooling Method for Speaker Verification Utilizing Pre-trained Multi-layer Features
+We share a PyTorch implementation of the proposed methodology here.
+
