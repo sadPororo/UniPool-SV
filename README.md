@@ -17,3 +17,7 @@ $ pip install -r requirements.txt
 $ apt-get install python3-soundfile
 $ conda install -c conda-forge ffmpeg
 ```
+
+
+## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
