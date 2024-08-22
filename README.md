@@ -13,7 +13,7 @@ The figure below overviews the proposed framework to pool speaker embedding from
 * We recommend you to visit [Previous Versions (v1.12.0)](https://pytorch.org/get-started/previous-versions/#v1120) for **PyTorch** installation including torchaudio==0.12.0.
 
 Use the [requirements.txt](/requirements.txt) to install the rest of the Python dependencies.   
-**Ubuntu-Soundfile** and **conda-ffmpeg** packages would be required for preprocessing, and you can install them as below.
+**Ubuntu-Soundfile** and **conda-ffmpeg** packages would be required for downloading and preprocessing data, and you can install them as below.
 
 ```bash
 $ pip install -r requirements.txt
@@ -22,11 +22,18 @@ $ conda install -c conda-forge ffmpeg
 ```
 ## Usage
 
-### 1. Prepare Datasets
+### 1. Dataset Preparation
 
 The datasets can be downloaded from here:
 
-[VCTK CSTR Corpus](https://datashare.ed.ac.uk/handle/10283/3443)
+* [**VCTK CSTR Corpus**](https://doi.org/10.7488/ds/2645)
+* [**LibriSpeech**](https://www.openslr.org/12)
+* **VoxCeleb 1 & 2**
+
+  We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to prepare VoxCeleb datasets, released under the MIT licence.
+
+
+
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
