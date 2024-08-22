@@ -3,5 +3,5 @@ We share a PyTorch implementation of our experiments here.
 
 The figure below overviews the proposed framework to pool speaker embedding from multi-layered nature of pre-trained models.
 <p align="center">
-<img src="/img/Fig-Overall_framework_v0.png" width="550" height="550">
+<img src="/img/Fig-Overall_framework_v0.png" width="850" height="300">
 </p>
