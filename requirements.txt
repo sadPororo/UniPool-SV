@@ -1,0 +1,11 @@
+transformers
+scikit-learn
+scipy
+librosa
+pandas
+matplotlib
+neptune
+PyYAML
+ruamel.yaml
+einops
+tqdm
