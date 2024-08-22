@@ -20,6 +20,11 @@ $ pip install -r requirements.txt
 $ apt-get install python3-soundfile
 $ conda install -c conda-forge ffmpeg
 ```
+## Usage
+
+### 1. Prepare Datasets
+
+The datasets can be downloaded from here:
 
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
