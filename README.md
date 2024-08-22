@@ -26,6 +26,7 @@ $ conda install -c conda-forge ffmpeg
 
 The datasets can be downloaded from here:
 
+[VCTK CSTR Corpus](https://datashare.ed.ac.uk/handle/10283/3443)
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
