@@ -48,16 +48,22 @@ $ python ./src/preprocess/process-VCTK.py
     - aaaaa
 
 #### 2-2. LibriSpeech
+```bash
+$ python ./src/preprocess/process-LibriSpeech.py
+```
 * Preprocessing includes,  
     - convert audio format ```.flac``` into ```.wav``` file.
-
+* Split includes,  
+    - aaaaa
 
 #### 2-3. VoxCeleb 1 & 2  
-
 ```bash
-$ python src/preprocess
+$ python ./src/preprocess/process-VoxCeleb.py
 ```
-
+* Preprocessing includes,  
+    - convert audio format ```.flac``` into ```.wav``` file.
+* Split includes,  
+    - aaaaa
 
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
