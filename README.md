@@ -34,7 +34,7 @@ The datasets can be downloaded from here:
   Follow the data preparation script, till you convert the VoxCeleb 2 audio format ```aac(.m4a)``` into ```.wav``` file.
 
 
-## 2. Data Preprocessing & Evaluation Split
+## 2. Data Preprocessing & Evaluation Set Split
 #### 2-1. VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/process-VCTK.py
