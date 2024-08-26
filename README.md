@@ -60,6 +60,7 @@ $ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 
 #### LibriSpeech
 ```bash
+# preprocessing
 $ python ./src/preprocess/process-LibriSpeech.py
 ```
 >Convert audio format ```.flac``` to ```.wav``` file.
@@ -76,6 +77,7 @@ $ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 
 #### VoxCeleb 1 & 2  
 ```bash
+# preprocessing
 $ python ./src/preprocess/split-VoxCeleb.py
 ```
 
