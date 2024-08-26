@@ -52,7 +52,7 @@ $ python ./src/preprocess/process-VCTK.py
 $ python ./src/preprocess/process-LibriSpeech.py
 ```
 * Preprocessing includes,
-    - convert audio format ```.flac``` into ```.wav``` file.
+    - convert audio format ```.flac``` to ```.wav``` file.
 
 * Split includes,  
     - aaaaa
