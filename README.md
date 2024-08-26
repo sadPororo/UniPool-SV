@@ -66,8 +66,9 @@ $ python ./src/preprocess/split-VCTK-1-rawtrials.py
 $ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 ```
 >Subset the total speaker pool into train, validation, and test speaker subsets.  
->Check the match of speaker meta-information (Gender | Age | Accents | Region) given the total combination of samples.
->
+>Check the match of speaker meta-info (Gender | Age | Accents | Region) given the total combination of samples.
+>Sample the trials with a balance to the label distribution and meta-info matches.
+
 #### LibriSpeech
 ```bash
 $ python ./src/preprocess/split-LibriSpeech.py
