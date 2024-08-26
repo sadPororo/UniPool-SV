@@ -39,69 +39,40 @@ The datasets can be downloaded from here:
 ```bash
 $ python ./src/preprocess/process-VCTK.py
 ```
-* Preprocessing
-    - remove speaker [p280, p315] of risen technical issues.  
-    - drop samples (no.000~no.024), where the same transcript is used for each number.  
-    - resample audio sources to meet the sample rate in common (48K &rarr; 16K).
-
-```bash
-$ python ./src/preprocess/split-VCTK.py
-```
-* Split  
-    - aaaaa
+>remove speaker [p280, p315] of risen technical issues.  
+>drop samples (no.000~no.024), where the same transcript is used for each number.  
+>resample audio sources to meet the sample rate in common (48K &rarr; 16K).
 
 #### LibriSpeech
 ```bash
 $ python ./src/preprocess/process-LibriSpeech.py
-$ python ./src/preprocess/split-LibriSpeech.py
 ```
-* Preprocessing
-    - convert audio format ```.flac``` to ```.wav``` file.
-
-* Split
-    - aaaaa
+>convert audio format ```.flac``` to ```.wav``` file.
 
 #### VoxCeleb 1 & 2  
 ```bash
 $ python ./src/preprocess/split-VoxCeleb.py
 ```
-* Split includes,  
-    - aaaaa
 
 ## 2-2. Evaluation Split
-* We share the splits and trials on 
+* We share the ready-made splits and evaluation trials used for our experiments in the file tree. However, you may use the scripts below to build your own.
 #### VCTK CSTR Corpus  
-```bash
-$ python ./src/preprocess/process-VCTK.py
-```
-* Preprocessing
-    - remove speaker [p280, p315] of risen technical issues.  
-    - drop samples (no.000~no.024), where the same transcript is used for each number.  
-    - resample audio sources to meet the sample rate in common (48K &rarr; 16K).
-
 ```bash
 $ python ./src/preprocess/split-VCTK.py
 ```
-* Split  
-    - aaaaa
+>aaaaa
 
 #### LibriSpeech
 ```bash
-$ python ./src/preprocess/process-LibriSpeech.py
 $ python ./src/preprocess/split-LibriSpeech.py
 ```
-* Preprocessing
-    - convert audio format ```.flac``` to ```.wav``` file.
-
-* Split
-    - aaaaa
+>aaaaa
 
 #### VoxCeleb 1 & 2  
 ```bash
 $ python ./src/preprocess/split-VoxCeleb.py
 ```
-* Split includes,  
-    - aaaaa
+>aaaaa
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
