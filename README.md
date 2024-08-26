@@ -39,15 +39,15 @@ The datasets can be downloaded from here:
 ```bash
 $ python ./src/preprocess/process-VCTK.py
 ```
->remove speaker [p280, p315] of risen technical issues.  
->drop samples (no.000~no.024), where the same transcript is used for each number.  
->resample audio sources to meet the sample rate in common (48K &rarr; 16K).
+>- Remove speaker [p280, p315] of risen technical issues.  
+>- Drop samples (no.000~no.024), where the same transcript is used for each number.  
+>- Resample audio sources to meet the sample rate in common (48K &rarr; 16K).
 
 #### LibriSpeech
 ```bash
 $ python ./src/preprocess/process-LibriSpeech.py
 ```
->convert audio format ```.flac``` to ```.wav``` file.
+>- Convert audio format ```.flac``` to ```.wav``` file.
 
 #### VoxCeleb 1 & 2  
 ```bash
@@ -56,12 +56,14 @@ $ python ./src/preprocess/split-VoxCeleb.py
 
 ## 2-2. Evaluation Split
 * We share the ready-made splits and evaluation trials used for our experiments in the file tree.  
-  _However, you may use the scripts below to build your own._
+  _However, you may use the scripts below to build your own (might take a while)._
 #### VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/split-VCTK.py
 ```
->aaaaa
+>- Subset the total speaker pool into a train, validation, and test speaker subsets.  
+>- Check the match of speaker meta-information (Gender | Age | Accents | Region) given the total combination of samples from each evaluation subset.
+>
 
 #### LibriSpeech
 ```bash
