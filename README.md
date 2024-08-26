@@ -55,7 +55,8 @@ $ python ./src/preprocess/split-VoxCeleb.py
 ```
 
 ## 2-2. Evaluation Split
-* We share the ready-made splits and evaluation trials used for our experiments in the file tree. However, you may use the scripts below to build your own.
+* We share the ready-made splits and evaluation trials used for our experiments in the file tree.
+  However, you may use the scripts below to build your own.
 #### VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/split-VCTK.py
