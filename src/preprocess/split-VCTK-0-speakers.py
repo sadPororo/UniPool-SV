@@ -97,7 +97,7 @@ if __name__ == "__main__":
     df_test = pd.concat([df_test, df_val_test[len(df_val_test)//2:]])
     
     # save csv
-    save_columns = list(set(['AGE', 'GENDER', 'ACCENTS', 'REGION', 'COUNTS']))
+    save_columns = list(set(['AGE', 'GENDER', 'ACCENTS', 'REGION', 'COUNTS'] + stratify_conditions))
     df_train[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-train.csv'))
     df_val[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-valid.csv'))
     df_test[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-test.csv'))
