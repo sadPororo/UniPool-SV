@@ -38,6 +38,7 @@ The datasets can be downloaded from here:
 #### 2-1. VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/process-VCTK.py
+$ python ./src/preprocess/split-VCTK.py
 ```
 * Preprocessing
     - remove speaker [p280, p315] of risen technical issues.  
@@ -50,20 +51,18 @@ $ python ./src/preprocess/process-VCTK.py
 #### 2-2. LibriSpeech
 ```bash
 $ python ./src/preprocess/process-LibriSpeech.py
+$ python ./src/preprocess/split-LibriSpeech.py
 ```
 * Preprocessing
     - convert audio format ```.flac``` to ```.wav``` file.
 
-* Split includes
+* Split
     - aaaaa
 
 #### 2-3. VoxCeleb 1 & 2  
 ```bash
-$ python ./src/preprocess/process-VoxCeleb.py
+$ python ./src/preprocess/split-VoxCeleb.py
 ```
-* Preprocessing  
-    - convert audio format ```.flac``` into ```.wav``` file.
-
 * Split includes,  
     - aaaaa
 
