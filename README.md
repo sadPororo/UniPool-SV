@@ -74,7 +74,7 @@ $ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### VoxCeleb 1 & 2  
->Convert audio format ```.flac``` to ```.wav``` file.
+>No special data preprocessing required.
 
 ```bash
 # set split
