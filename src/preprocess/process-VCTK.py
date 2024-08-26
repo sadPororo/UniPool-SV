@@ -54,6 +54,7 @@ if __name__ == "__main__":
         speaker_list.remove('p315')
         
     # gather total file list to preprocess
+    print('Gathering Source (Speaker/Audio) paths...')    
     total_filepath_list = []
     for speaker_id in _generator(tqdm(speaker_list)):
         os.makedirs(opj(save_path, 'wav16', speaker_id), exist_ok=True)
@@ -65,6 +66,7 @@ if __name__ == "__main__":
                     total_filepath_list.append(opj(speaker_id, wav_id))
                     
     # resample to 16K
+    print('Resampling (.wav) files...')
     with Pool(args.n_workers) as pool:
         list(tqdm(pool.imap(preprocess_resample, zip(total_filepath_list, 
                                                  itertools.repeat(opj(args.read_path, 'wav48')), 
