@@ -1,20 +1,18 @@
-import os
 import re
 import argparse
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
+from itertools import product
 from os.path import join as opj
 from tqdm import tqdm as tqdm
 
 
 parser = argparse.ArgumentParser(description = "VCTK-Corpus set split")
-parser.add_argument('--read_path', type=str, default="./data/VCTK-Corpus", help='Source directory')
-parser.add_argument('--save_path', type=str, default=None, help='Output directory, default to "{READ_PATH}/preprocess/"')
-parser.add_argument('--n_workers', type=int, default=4, help='Multi-processing Cores')
+parser.add_argument('--data_path', type=str, default="./data/VCTK-Corpus/preprocess", help='Source directory')
 args = parser.parse_args();
 
 
@@ -34,14 +32,8 @@ def binning_columns(column: pd.Series, n_bins: int):
     
 if __name__ == "__main__":
     
-    # Define output directory
-    if args.save_path is None:
-        save_path = opj(args.read_path, 'preprocess')
-    else:
-        save_path = args.save_path
-
     # load speaker meta info
-    with open(opj(args.read_path, 'speaker-info.txt'), 'r') as f:
+    with open(opj(args.data_path, 'speakers', 'speaker-info.txt'), 'r') as f:
         speaker_meta = []
         for line in _generator(f.readlines()[1:]):
             id  = line[:line.find(' ')].strip(); line = remove_whitespace(line)
@@ -65,7 +57,7 @@ if __name__ == "__main__":
     # collect utterance counts for speakers
     sample_counts_per_speaker = {}
     for speaker_id in tqdm(speaker_list):
-        sample_counts_per_speaker[speaker_id] = len(os.listdir(opj(save_path, 'wav16', speaker_id)))
+        sample_counts_per_speaker[speaker_id] = len(os.listdir(opj(args.data_path, 'wav16', speaker_id)))
         
     speaker_meta['COUNTS'] = sample_counts_per_speaker
     
@@ -104,7 +96,7 @@ if __name__ == "__main__":
     df_test = pd.concat([df_test, df_val_test[len(df_val_test)//2:]])
     
     # save csv
-    save_columns = list(set(['AGE', 'GENDER', 'ACCENTS', 'REGION', 'DURATIONS', 'COUNTS'] + stratify_conditions))
-    df_train[save_columns].to_csv(opj(save_path, 'speakers', 'speaker-train.csv'))
-    df_val[save_columns].to_csv(opj(save_path, 'speakers', 'speaker-valid.csv'))
-    df_test[save_columns].to_csv(opj(save_path, 'speakers', 'speaker-test.csv'))
+    save_columns = list(set(['AGE', 'GENDER', 'ACCENTS', 'REGION', 'COUNTS']))
+    df_train[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-train.csv'))
+    df_val[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-valid.csv'))
+    df_test[save_columns].to_csv(opj(args.data_path, 'speakers', 'speaker-test.csv'))
