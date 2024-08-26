@@ -74,6 +74,9 @@ $ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### VoxCeleb 1 & 2  
+```bash
+$ mv ./data/VoxCeleb/*_wav/ ./data/VoxCeleb/preprocess/
+```
 >No special data preprocessing required.
 
 ```bash
