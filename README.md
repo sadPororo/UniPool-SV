@@ -82,7 +82,7 @@ $ python ./src/preprocess/split-VoxCeleb2-1-rawtrials.py
 $ python ./src/preprocess/split-VoxCeleb2-2-balancedtrials.py
 ```
 >List up the speakers in each subsets, and convert '[Vox1-O](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html)' evaluation path file format ```.txt``` to ```.csv```.  
->Sample the trials with a balance to the label distribution and meta-info matches.
+>Sample the trials with a balance to the label distribution.
 
 ## 3. Run Experiments
 
