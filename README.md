@@ -27,12 +27,16 @@ $ conda install -c conda-forge ffmpeg
 The datasets can be downloaded from here:
 
 * [**VCTK CSTR Corpus**](https://doi.org/10.7488/ds/2645)
+
 * [**LibriSpeech**](https://www.openslr.org/12)
-* **VoxCeleb 1 & 2**
 
-  We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to download VoxCeleb datasets, released under the MIT licence.
+* **VoxCeleb 1 & 2**  
+  We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to download VoxCeleb datasets, released under the MIT licence.  
+  Follow the data preparation script, till you convert the VoxCeleb 2 audio format ```aac(.m4a)``` into ```.wav``` file.
 
-### 2. Data Preprocessing
+
+### 2. Data Preprocessing & Evaluation Split
+
 ```bash
 $ python src/preprocess
 ```
