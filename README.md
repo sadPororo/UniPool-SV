@@ -33,7 +33,9 @@ The datasets can be downloaded from here:
   We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to download VoxCeleb datasets, released under the MIT licence.
 
 ### 2. Data Preprocessing
-
+```bash
+$ python src/preprocess
+```
 
 
 
