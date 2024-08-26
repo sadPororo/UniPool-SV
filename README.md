@@ -37,7 +37,8 @@ The datasets can be downloaded from here:
 ## 2. Data Preprocessing & Evaluation Split
 #### 2-1. VCTK CSTR Corpus  
 * Preprocessing includes,  
-    - drop samples no.000 ~ no.024, where the same transcript is used for each number.  
+    - remove speaker [p280, p315] of risen technical issues.  
+    - drop samples (no.000~no.024), where the same transcript is used for each number.  
     - resampling audio sources to meet common sample rate.  
 * Split includes,  
     - aaaaa
