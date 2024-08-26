@@ -26,7 +26,7 @@ def preprocess_resample(filepath_list):
     filepath, read_data_path, save_data_path = filepath_list
     
     # load audio file
-    waveform, sr = torchaudio.load('/'.join([read_data_path, filepath]))
+    waveform, sr = torchaudio.load(opj(read_data_path, filepath))
 
     # VCTK: 48K sample_rate >> 16K sample_rate
     if sr != 16000:
@@ -34,7 +34,7 @@ def preprocess_resample(filepath_list):
         sr = 16000
         
     # save 16K audio
-    torchaudio.save(filepath='/'.join([save_data_path, filepath]), src=waveform, sample_rate=sr)    
+    torchaudio.save(filepath=opj(save_data_path, filepath), src=waveform, sample_rate=sr, bits_per_sample=16, encoding='PCM_S')
 
 
 if __name__ == "__main__":
