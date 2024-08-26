@@ -34,9 +34,9 @@ The datasets can be downloaded from here:
   Follow the data preparation script, till you convert the VoxCeleb 2 audio format ```aac(.m4a)``` into ```.wav``` file.
 
 
-## 2-1. Data Preprocessing
-* The scripts in this section are to build evaluation trials (may take a while).  
-  _However, you can skip the section since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
+## 2. Data Preprocessing & Evaluation Split
+The following scripts are to preprocess audio data and build evaluation trials from each dataset.
+* _However, you can skip the **set split** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
   Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
 
 #### VCTK CSTR Corpus  
@@ -68,33 +68,6 @@ $ python ./src/preprocess/process-LibriSpeech.py
 ```bash
 $ python ./src/preprocess/split-VoxCeleb.py
 ```
-
-## 2-2. Evaluation Split
-The following scripts are to preprocess audio data and build evaluation trials from each dataset.
-* _However, you can skip the **set split** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
-  Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
-
-#### VCTK CSTR Corpus  
-```bash
-$ python ./src/preprocess/split-VCTK-0-speakers.py
-$ python ./src/preprocess/split-VCTK-1-rawtrials.py
-$ python ./src/preprocess/split-VCTK-2-balancedtrials.py
-```
->Subset the total speaker pool into train, validation, and test speaker subsets.  
->Check the match of speaker meta-info (Gender | Age | Accents | Region) given the total combination of samples.  
->Sample the trials with a balance to the label distribution and meta-info matches.
-
-#### LibriSpeech
-```bash
-$ python ./src/preprocess/split-LibriSpeech.py
-```
->aaaaa
-
-#### VoxCeleb 1 & 2  
-```bash
-$ python ./src/preprocess/split-VoxCeleb.py
-```
->aaaaa
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
