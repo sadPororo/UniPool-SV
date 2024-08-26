@@ -55,7 +55,8 @@ $ python ./src/preprocess/split-VoxCeleb.py
 ```
 
 ## 2-2. Evaluation Split
-* We share the ready-made splits and evaluation trials used for our experiments in the file tree.  
+* We share the ready-made splits and evaluation trials used for our experiments in the file tree.
+  See []()
   _However, you may use the scripts below to build your own (might take a while)._
 #### VCTK CSTR Corpus  
 ```bash
@@ -66,7 +67,6 @@ $ python ./src/preprocess/split-VCTK-0-balancedtrials.py
 >Subset the total speaker pool into train, validation, and test speaker subsets.  
 >Check the match of speaker meta-information (Gender | Age | Accents | Region) given the total combination of samples.
 >
-
 #### LibriSpeech
 ```bash
 $ python ./src/preprocess/split-LibriSpeech.py
