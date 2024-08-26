@@ -55,9 +55,10 @@ $ python ./src/preprocess/split-VoxCeleb.py
 ```
 
 ## 2-2. Evaluation Split
-* We share the ready-made splits and evaluation trials used for our experiments in the file tree.
-  See []()
-  _However, you may use the scripts below to build your own (might take a while)._
+* The scripts in this section are to build evaluation trials (may take a while).  
+  _However, you can skip the section since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
+  Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
+
 #### VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/split-VCTK-0-speakers.py
