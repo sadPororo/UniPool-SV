@@ -2,6 +2,7 @@ import os
 import argparse
 import itertools
 import torchaudio
+import subprocess
 
 from tqdm import tqdm as tqdm
 from multiprocessing import Pool, freeze_support
@@ -45,6 +46,12 @@ if __name__ == "__main__":
         save_path = opj(args.read_path, 'preprocess')
     else:
         save_path = args.save_path
+    os.makedirs(opj(save_path, 'wav16'), exist_ok=True)
+    os.makedirs(opj(save_path, 'speakers'), exist_ok=True)
+    out = subprocess.call('cp %s %s' % (opj(args.read_path, 'speaker-info.txt'), opj(save_path, 'speakers', 'speaker-info.txt')), shell=True)
+    if out != 0:
+        raise ValueError('Copy failed %s.' % opj(args.read_path, 'speaker-info.txt'))
+    os.makedirs(opj(save_path, 'trials'), exist_ok=True)
     
     speaker_list = os.listdir(opj(args.read_path, 'wav48'))
     # remove speakers (p280, p315)
