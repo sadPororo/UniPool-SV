@@ -45,8 +45,10 @@ Split includes,
 
 #### 2-2. LibriSpeech
 
-[x]
-(x)
+- [X]
+- (X)
+- ( )
+- [ ]
 
 #### 2-3. VoxCeleb 1 & 2  
 
