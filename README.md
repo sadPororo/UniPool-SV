@@ -74,10 +74,15 @@ $ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### VoxCeleb 1 & 2  
+>Convert audio format ```.flac``` to ```.wav``` file.
+
 ```bash
-# preprocessing
-$ python ./src/preprocess/split-VoxCeleb.py
+# set split
+$ python ./src/preprocess/split-LibriSpeech-1-rawtrials.py
+$ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 ```
+>Check the match of speaker meta-info (Gender(SEX) | Label) given the total combination of samples.  
+>Sample the trials with a balance to the label distribution and meta-info matches.
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
