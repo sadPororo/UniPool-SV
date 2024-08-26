@@ -35,13 +35,28 @@ The datasets can be downloaded from here:
 
 
 ## 2-1. Data Preprocessing
+* The scripts in this section are to build evaluation trials (may take a while).  
+  _However, you can skip the section since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
+  Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
+
 #### VCTK CSTR Corpus  
 ```bash
+# preprocessing
 $ python ./src/preprocess/process-VCTK.py
 ```
 >Remove speaker [p280, p315] of risen technical issues.  
 >Drop samples (no.000~no.024), where the same transcript is used for each number.  
 >Resample audio sources to meet the sample rate in common (48K &rarr; 16K).
+
+```bash
+# set split
+$ python ./src/preprocess/split-VCTK-0-speakers.py
+$ python ./src/preprocess/split-VCTK-1-rawtrials.py
+$ python ./src/preprocess/split-VCTK-2-balancedtrials.py
+```
+>Subset the total speaker pool into train, validation, and test speaker subsets.  
+>Check the match of speaker meta-info (Gender | Age | Accents | Region) given the total combination of samples.  
+>Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### LibriSpeech
 ```bash
@@ -55,8 +70,8 @@ $ python ./src/preprocess/split-VoxCeleb.py
 ```
 
 ## 2-2. Evaluation Split
-* The scripts in this section are to build evaluation trials (may take a while).  
-  _However, you can skip the section since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
+The following scripts are to preprocess audio data and build evaluation trials from each dataset.
+* _However, you can skip the **set split** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
   Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
 
 #### VCTK CSTR Corpus  
