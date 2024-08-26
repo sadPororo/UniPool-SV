@@ -1,0 +1,12 @@
+data_path: '/home/jinsob/AudioDatasets/LibriSpeech/wav16-txtgrid-trimmed'
+train_subsets: ['train-clean-100', 'train-clean-360', 'train-other-500']
+
+valid_trials: '/home/jinsob/AudioDatasets/LibriSpeech/trials/trials-dev-B.csv'
+test_trials:  '/home/jinsob/AudioDatasets/LibriSpeech/trials/trials-test-B.csv'
+
+speaker_meta: '/home/jinsob/AudioDatasets/LibriSpeech/speakers'
+nb_class_train: 2338
+nb_class_test: 73
+nb_class_val: 73
+
+train_hrs: 917.04

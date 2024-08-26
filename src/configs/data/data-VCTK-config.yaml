@@ -1,0 +1,11 @@
+data_path: '/home/jinsob/AudioDatasets/VCTK/wav16-txtgrid-trimmed'
+
+valid_trials: '/home/jinsob/AudioDatasets/VCTK/trials/trials-valid-B.csv'
+test_trials:  '/home/jinsob/AudioDatasets/VCTK/trials/trials-test-B.csv'
+
+speaker_meta: '/home/jinsob/AudioDatasets/VCTK/speakers'
+nb_class_train: 72
+nb_class_test: 18
+nb_class_val: 18
+
+train_hrs: 14.21

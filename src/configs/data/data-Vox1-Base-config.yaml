@@ -1,0 +1,11 @@
+data_path: '/home/jinsob/AudioDatasets/VoxCeleb/wav16-trimmed'
+
+valid_trials: '/home/jinsob/AudioDatasets/VoxCeleb/trials/trials-vox2-B.csv'
+test_trials:  '/home/jinsob/AudioDatasets/VoxCeleb/trials/trials-vox1.csv'
+
+speaker_meta: '/home/jinsob/AudioDatasets/VoxCeleb/speakers'
+nb_class_train: 1211
+nb_class_test: 40
+nb_class_val: 118
+
+train_hrs: 340.34
