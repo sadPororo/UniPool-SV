@@ -50,10 +50,10 @@ if __name__ == "__main__":
             split_dir = '-'.join([split1, split2]) # dev-clean | dev-other | test-clean | test-other
             
             for speaker_id in _generator(os.listdir(opj(args.data_path, 'wav16', split_dir))):
-                for chaper_id in _generator(os.listdir(opj(args.data_path, 'wav16', split_dir, speaker_id))):
-                    for wav_id in _generator(os.listdir(opj(args.data_path, 'wav16', split_dir, speaker_id, chaper_id))):
+                for chapter_id in _generator(os.listdir(opj(args.data_path, 'wav16', split_dir, speaker_id))):
+                    for wav_id in _generator(os.listdir(opj(args.data_path, 'wav16', split_dir, speaker_id, chapter_id))):
                         if wav_id.endswith('.wav'):
-                            filepath = opj(split_dir, speaker_id, wav_id)
+                            filepath = opj(split_dir, speaker_id, chapter_id, wav_id)
                             sample_list.append(filepath)
                             # mfcc_dict[filepath] = mfcc_transform(torchaudio.load(opj(args.data_path, 'wav16', filepath))[0]).mean(dim=-1)
 
