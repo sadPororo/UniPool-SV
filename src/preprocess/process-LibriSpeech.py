@@ -36,6 +36,12 @@ if __name__ == "__main__":
         save_path = opj(args.read_path, 'preprocess')
     else:
         save_path = args.save_path
+    os.makedirs(opj(save_path, 'wav16'), exist_ok=True)
+    os.makedirs(opj(save_path, 'speakers'), exist_ok=True)
+    out = subprocess.call('cp %s %s' % (opj(args.read_path, 'SPEAKERS.TXT'), opj(save_path, 'speakers', 'SPEAKERS.TXT')), shell=True)
+    if out != 0:
+        raise ValueError('Copy failed %s.' % opj(args.read_path, 'SPEAKERS.TXT'))
+    os.makedirs(opj(save_path, 'trials'), exist_ok=True)
         
     subset_list = ['dev-clean', 'dev-other', 'test-clean', 'test-other', 'train-clean-100', 'train-clean-360', 'train-other-500']
     for subset in subset_list:
@@ -47,7 +53,7 @@ if __name__ == "__main__":
         for speaker_id in _generator(tqdm(os.listdir(opj(args.read_path, subset)))):
             
             for chapter_id in _generator(os.listdir(opj(args.read_path, subset, speaker_id))):
-                os.makedirs(opj(save_path, subset, speaker_id, chapter_id), exist_ok=True)
+                os.makedirs(opj(save_path, 'wav16', subset, speaker_id, chapter_id), exist_ok=True)
                 
                 for wav_id in _generator(os.listdir(opj(args.read_path, subset, speaker_id, chapter_id))):
                     if wav_id.endswith('.flac'):
@@ -58,4 +64,4 @@ if __name__ == "__main__":
         with Pool(args.n_workers) as pool:
             list(tqdm(pool.imap(preprocess_conversion, zip(total_filepath_list, 
                                                            itertools.repeat(opj(args.read_path)), 
-                                                           itertools.repeat(opj(save_path)))), total=len(total_filepath_list)))
+                                                           itertools.repeat(opj(save_path, 'wav16')))), total=len(total_filepath_list)))
