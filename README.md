@@ -55,7 +55,7 @@ $ python ./src/preprocess/split-VCTK-1-rawtrials.py
 $ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 ```
 >Subset the total speaker pool into train, validation, and test speaker subsets.  
->Check the match of speaker meta-info (Gender | Age | Accents | Region) given the total combination of samples.  
+>Check the match of speaker meta-info (Gender | Age | Accents | Region | Label) given the total combination.  
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### LibriSpeech
@@ -67,12 +67,10 @@ $ python ./src/preprocess/process-LibriSpeech.py
 
 ```bash
 # set split
-$ python ./src/preprocess/split-VCTK-0-speakers.py
-$ python ./src/preprocess/split-VCTK-1-rawtrials.py
-$ python ./src/preprocess/split-VCTK-2-balancedtrials.py
+$ python ./src/preprocess/split-LibriSpeech-1-rawtrials.py
+$ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 ```
->Subset the total speaker pool into train, validation, and test speaker subsets.  
->Check the match of speaker meta-info (Gender | Age | Accents | Region) given the total combination of samples.  
+>Check the match of speaker meta-info (Gender(SEX) | Label) given the total combination of samples.  
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 #### VoxCeleb 1 & 2  
