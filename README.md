@@ -38,13 +38,15 @@ The datasets can be downloaded from here:
 #### 2-1. VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/process-VCTK.py
-$ python ./src/preprocess/split-VCTK.py
 ```
 * Preprocessing
     - remove speaker [p280, p315] of risen technical issues.  
     - drop samples (no.000~no.024), where the same transcript is used for each number.  
     - resample audio sources to meet the sample rate in common (48K &rarr; 16K).
 
+```bash
+$ python ./src/preprocess/split-VCTK.py
+```
 * Split  
     - aaaaa
 
