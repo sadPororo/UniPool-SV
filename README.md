@@ -34,8 +34,8 @@ The datasets can be downloaded from here:
   Follow the data preparation script, till you convert the VoxCeleb 2 audio format ```aac(.m4a)``` into ```.wav``` file.
 
 
-## 2. Data Preprocessing & Evaluation Set Split
-#### 2-1. VCTK CSTR Corpus  
+## 2-1. Data Preprocessing
+#### VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/process-VCTK.py
 ```
@@ -50,7 +50,7 @@ $ python ./src/preprocess/split-VCTK.py
 * Split  
     - aaaaa
 
-#### 2-2. LibriSpeech
+#### LibriSpeech
 ```bash
 $ python ./src/preprocess/process-LibriSpeech.py
 $ python ./src/preprocess/split-LibriSpeech.py
@@ -61,13 +61,47 @@ $ python ./src/preprocess/split-LibriSpeech.py
 * Split
     - aaaaa
 
-#### 2-3. VoxCeleb 1 & 2  
+#### VoxCeleb 1 & 2  
 ```bash
 $ python ./src/preprocess/split-VoxCeleb.py
 ```
 * Split includes,  
     - aaaaa
 
+## 2-2. Evaluation Split
+* We share the splits and trials on 
+#### VCTK CSTR Corpus  
+```bash
+$ python ./src/preprocess/process-VCTK.py
+```
+* Preprocessing
+    - remove speaker [p280, p315] of risen technical issues.  
+    - drop samples (no.000~no.024), where the same transcript is used for each number.  
+    - resample audio sources to meet the sample rate in common (48K &rarr; 16K).
+
+```bash
+$ python ./src/preprocess/split-VCTK.py
+```
+* Split  
+    - aaaaa
+
+#### LibriSpeech
+```bash
+$ python ./src/preprocess/process-LibriSpeech.py
+$ python ./src/preprocess/split-LibriSpeech.py
+```
+* Preprocessing
+    - convert audio format ```.flac``` to ```.wav``` file.
+
+* Split
+    - aaaaa
+
+#### VoxCeleb 1 & 2  
+```bash
+$ python ./src/preprocess/split-VoxCeleb.py
+```
+* Split includes,  
+    - aaaaa
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
