@@ -62,8 +62,8 @@ $ python ./src/preprocess/split-VoxCeleb.py
 #### VCTK CSTR Corpus  
 ```bash
 $ python ./src/preprocess/split-VCTK-0-speakers.py
-$ python ./src/preprocess/split-VCTK-0-rawtrials.py
-$ python ./src/preprocess/split-VCTK-0-balancedtrials.py
+$ python ./src/preprocess/split-VCTK-1-rawtrials.py
+$ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 ```
 >Subset the total speaker pool into train, validation, and test speaker subsets.  
 >Check the match of speaker meta-information (Gender | Age | Accents | Region) given the total combination of samples.
