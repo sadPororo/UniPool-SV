@@ -43,6 +43,7 @@ $ python ./src/preprocess/process-VCTK.py
     - remove speaker [p280, p315] of risen technical issues.  
     - drop samples (no.000~no.024), where the same transcript is used for each number.  
     - resample audio sources to meet the sample rate in common (48K &rarr; 16K).
+
 * Split includes,  
     - aaaaa
 
@@ -52,6 +53,7 @@ $ python ./src/preprocess/process-LibriSpeech.py
 ```
 * Preprocessing includes,
     - convert audio format ```.flac``` into ```.wav``` file.
+
 * Split includes,  
     - aaaaa
 
@@ -61,6 +63,7 @@ $ python ./src/preprocess/process-VoxCeleb.py
 ```
 * Preprocessing includes,  
     - convert audio format ```.flac``` into ```.wav``` file.
+
 * Split includes,  
     - aaaaa
 
