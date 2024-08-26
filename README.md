@@ -78,10 +78,10 @@ $ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 
 ```bash
 # set split
-$ python ./src/preprocess/split-LibriSpeech-1-rawtrials.py
-$ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
+$ python ./src/preprocess/split-VoxCeleb2-1-rawtrials.py
+$ python ./src/preprocess/split-VoxCeleb2-2-balancedtrials.py
 ```
->Check the match of speaker meta-info (Gender(SEX) | Label) given the total combination of samples.  
+>List up the speakers in each subsets, and convert '[Vox1-O](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html)' evaluation path file format ```.txt``` to ```.csv```.  
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
 ## 3. Run Experiments
