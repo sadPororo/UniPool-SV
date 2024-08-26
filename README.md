@@ -30,7 +30,9 @@ The datasets can be downloaded from here:
 * [**LibriSpeech**](https://www.openslr.org/12)
 * **VoxCeleb 1 & 2**
 
-  We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to prepare VoxCeleb datasets, released under the MIT licence.
+  We use [clovaai/voxceleb_trainer](https://github.com/clovaai/voxceleb_trainer) to download VoxCeleb datasets, released under the MIT licence.
+
+### 2. Data Preprocessing
 
 
 
