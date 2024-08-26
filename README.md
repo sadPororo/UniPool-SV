@@ -20,9 +20,8 @@ $ pip install -r requirements.txt
 $ apt-get install python3-soundfile
 $ conda install -c conda-forge ffmpeg
 ```
-## Usage
 
-### 1. Dataset Preparation
+## 1. Dataset Preparation
 
 The datasets can be downloaded from here:
 
@@ -35,13 +34,13 @@ The datasets can be downloaded from here:
   Follow the data preparation script, till you convert the VoxCeleb 2 audio format ```aac(.m4a)``` into ```.wav``` file.
 
 
-### 2. Data Preprocessing & Evaluation Split
+## 2. Data Preprocessing & Evaluation Split
 #### 2-1. VCTK CSTR Corpus  
 * Preprocessing includes,  
-    - Resample audio sources to meet 16K sample rate.  
-    - Remove samples no.000 ~ no.024, where the same transcript is used for each number.
-
-Split includes, 
+    - drop samples no.000 ~ no.024, where the same transcript is used for each number.  
+    - resampling audio sources to meet common sample rate.  
+* Split includes,  
+    - aaaaa
 
 #### 2-2. LibriSpeech
 
