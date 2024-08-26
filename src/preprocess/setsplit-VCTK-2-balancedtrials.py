@@ -12,7 +12,7 @@ from tqdm import tqdm as tqdm
 
 parser = argparse.ArgumentParser(description = "VCTK-Corpus compute all trials from evalutation dataset")
 parser.add_argument('--data_path', type=str, default="./data/VCTK-Corpus/preprocess", help='Source directory')
-parser.add_argument('--min_sample_size', type=int, default=8000, help='approximate sample size for each positive/negative pairs')
+parser.add_argument('--class_sample_size', type=int, default=8000, help='approximate sample size for each positive/negative pairs')
 args = parser.parse_args();
 
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         df_negative = df_eval.loc[(df_eval['LABEL']==0)]
 
         condition_pool = list(product([1, 0], [1, 0]))
-        cond_sample_size = np.ceil(args.min_sample_size / len(condition_pool)).astype(int) # ~ 2000
+        cond_sample_size = np.ceil(args.class_sample_size / len(condition_pool)).astype(int) # ~ 2000
         print('- Sampling negatives')
         
         for cond in condition_pool:
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         POS_SAMPLE_INDICE = []
         df_positive = df_eval.loc[(df_eval['LABEL']==1)]
         speaker_pool = list(df_positive['SPEAKER1'].unique())
-        spk_sample_size = np.ceil(args.min_sample_size / len(speaker_pool)).astype(int)
+        spk_sample_size = np.ceil(args.class_sample_size / len(speaker_pool)).astype(int)
         print(f'{len(speaker_pool)} unique speaker exists, {spk_sample_size} samples will be chosen from each...')
         
         for s_id in _generator(tqdm(speaker_pool)):
