@@ -1,0 +1,8 @@
+nb_total_step: 10000  # total number for calling 'optim.step()' for whole training process.
+nb_steps_eval: 1000   # the evaluation will be proceeded after whenever this number of updates have done.
+batch_size: 128       # train mini-batch size.
+
+sr: 16000             # sample rate
+train_max_sec: 3.     # the maximum length (second) of audio while training
+fix_to_maxlen: False  # Pad the shortage of wave to the maximum length, else the collate functions will pad 
+                      # the wave til the length become the longest instance in the minibatch
