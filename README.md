@@ -84,5 +84,8 @@ $ python ./src/preprocess/split-LibriSpeech-2-balancedtrials.py
 >Check the match of speaker meta-info (Gender(SEX) | Label) given the total combination of samples.  
 >Sample the trials with a balance to the label distribution and meta-info matches.
 
+## 3. Run Experiments
+
+
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
