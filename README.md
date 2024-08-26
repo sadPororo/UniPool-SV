@@ -36,12 +36,17 @@ The datasets can be downloaded from here:
 
 
 ### 2. Data Preprocessing & Evaluation Split
-Resample audio sources to meet 16K sample rate.
-
 #### 2-1. VCTK CSTR Corpus  
-Remove samples no.000 ~ no.024, where the same transcript is used for each number.
+* Preprocessing includes,  
+- Resample audio sources to meet 16K sample rate.  
+- Remove samples no.000 ~ no.024, where the same transcript is used for each number.
+
+Split includes, 
 
 #### 2-2. LibriSpeech
+
+[x]
+(x)
 
 #### 2-3. VoxCeleb 1 & 2  
 
