@@ -60,7 +60,7 @@ if __name__ == "__main__":
     for speaker_id in tqdm(speaker_list):
         sample_counts_per_speaker[speaker_id] = len(os.listdir(opj(args.data_path, 'wav16', speaker_id)))
         
-    speaker_meta['COUNTS'] = sample_counts_per_speaker
+    speaker_meta['COUNTS'] = pd.Series(sample_counts_per_speaker)
     
     # binning too much specified columns [AGE, COUNTS]
     speaker_meta['AGE'] = speaker_meta['AGE'].astype(int)
