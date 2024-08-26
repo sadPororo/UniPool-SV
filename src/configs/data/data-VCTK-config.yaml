@@ -1,9 +1,9 @@
-data_path: '/home/jinsob/AudioDatasets/VCTK/wav16-txtgrid-trimmed'
+data_path: './data/VCTK-Corpus/preprocess/wav16'
 
-valid_trials: '/home/jinsob/AudioDatasets/VCTK/trials/trials-valid-B.csv'
-test_trials:  '/home/jinsob/AudioDatasets/VCTK/trials/trials-test-B.csv'
+valid_trials: './data/VCTK-Corpus/preprocess/trials/trials-valid.csv'
+test_trials:  './data/VCTK-Corpus/preprocess/trials/trials-test.csv'
 
-speaker_meta: '/home/jinsob/AudioDatasets/VCTK/speakers'
+speaker_meta: './data/VCTK-Corpus/preprocess/speakers'
 nb_class_train: 72
 nb_class_test: 18
 nb_class_val: 18
