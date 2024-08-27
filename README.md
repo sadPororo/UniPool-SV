@@ -42,7 +42,7 @@ The following scripts are to preprocess audio data and build evaluation trials f
 #### VCTK CSTR Corpus  
 ```bash
 # preprocessing
-$ python ./src/preprocess/process-VCTK.py
+$ python ./src/preprocess/process-VCTK.py --read_path SRC_PATH
 ```
 >Remove speaker [p280, p315] of risen technical issues.  
 >Drop samples (no.000~no.024), where the same transcript is used for each number.  
@@ -61,7 +61,7 @@ $ python ./src/preprocess/split-VCTK-2-balancedtrials.py
 #### LibriSpeech
 ```bash
 # preprocessing
-$ python ./src/preprocess/process-LibriSpeech.py
+$ python ./src/preprocess/process-LibriSpeech.py --read_path SRC_PATH
 ```
 >Convert audio format ```.flac``` to ```.wav``` file.
 
