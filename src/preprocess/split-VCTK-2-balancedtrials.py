@@ -26,14 +26,14 @@ if __name__ == "__main__":
     for split in ['valid', 'test']:
         print(f'Running on {split} split...')
         
-        # df_eval_raw = pd.read_csv(opj(args.data_path, 'trials', f'trials-{split}-raw.csv'))
-        # df_eval_raw['SPEAKER1'] = df_eval_raw['SAMPLE1'].apply(lambda x: x.split('/')[0])
-        # df_eval_raw['SPEAKER2'] = df_eval_raw['SAMPLE2'].apply(lambda x: x.split('/')[0])
+        df_eval_raw = pd.read_csv(opj(args.data_path, 'trials', f'trials-{split}-raw.csv'))
+        df_eval_raw['SPEAKER1'] = df_eval_raw['SAMPLE1'].apply(lambda x: x.split('/')[0])
+        df_eval_raw['SPEAKER2'] = df_eval_raw['SAMPLE2'].apply(lambda x: x.split('/')[0])
         # df_eval_raw['SAMPLE1_NUM'] = df_eval_raw['SAMPLE1'].apply(lambda x: int(x[:-4].split('_')[-1]))
         # df_eval_raw['SAMPLE2_NUM'] = df_eval_raw['SAMPLE2'].apply(lambda x: int(x[:-4].split('_')[-1]))
         # df_eval = df_eval_raw.loc[(df_eval_raw['SAMPLE1_NUM'] > 24) & (df_eval_raw['SAMPLE2_NUM'] > 24)]
 
-        df_eval = pd.read_csv(opj(args.data_path, 'trials', f'trials-{split}-raw.csv'))
+        df_eval = df_eval_raw
         df_eval_meta = pd.read_csv((opj(args.data_path, 'speakers', f'speaker-{split}.csv')))
         
 
@@ -107,7 +107,8 @@ if __name__ == "__main__":
         print(f'...Total {len(POS_SAMPLE_INDICE)} negative trials are sampled!')
 
         df_eval_balanced = copy.deepcopy(df_eval.iloc[sorted(NEG_SAMPLE_INDICE + POS_SAMPLE_INDICE)])
-        df_eval_balanced.drop(columns=['SPEAKER1', 'SPEAKER2', 'SAMPLE1_NUM', 'SAMPLE2_NUM'], inplace=True)
+        # df_eval_balanced.drop(columns=['SPEAKER1', 'SPEAKER2', 'SAMPLE1_NUM', 'SAMPLE2_NUM'], inplace=True)
+        df_eval_balanced.drop(columns=['SPEAKER1', 'SPEAKER2'], inplace=True)
         df_eval_balanced.to_csv(opj(args.data_path, f'trials-{split}.csv'), index=False)
         
         print(f'{split} split: total {len(df_eval_balanced)} trials are sampled!')

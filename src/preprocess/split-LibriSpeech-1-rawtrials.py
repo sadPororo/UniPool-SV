@@ -37,7 +37,7 @@ if __name__ == "__main__":
                 speaker_meta.append(re.sub(' +\| +', '\t', line.strip()).split('\t'))
 
     df = pd.DataFrame(speaker_meta, columns=['ID', 'SEX', 'SUBSET', 'MINUTES', 'NAME']).set_index('ID')
-    df.to_csv(opj(args.data_path, 'meta', 'speaker-meta.csv'))
+    df.to_csv(opj(args.data_path, 'speakers', 'speaker-all.csv'))
     df = df.to_dict('index')
 
     # join clean & others path list
