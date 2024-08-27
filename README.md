@@ -81,8 +81,8 @@ $ mv ./data/VoxCeleb/*_wav/ ./data/VoxCeleb/preprocess/
 
 ```bash
 # set split
-$ python ./src/preprocess/split-VoxCeleb2-0-speakers.py
-$ python ./src/preprocess/split-VoxCeleb2-2-balancedtrials.py
+$ python ./src/preprocess/split-VoxCeleb-0-speakers.py
+$ python ./src/preprocess/split-VoxCeleb-2-balancedtrials.py
 ```
 >List up the speakers in each subsets, and convert '[Vox1-O](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox1.html)' evaluation path file format ```.txt``` to ```.csv```.  
 >Sample the trials with a balance to the label distribution.
