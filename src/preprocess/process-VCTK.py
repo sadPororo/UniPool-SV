@@ -54,9 +54,7 @@ if __name__ == "__main__":
     os.makedirs(opj(save_path, 'trials'), exist_ok=True)
     
     speaker_list = os.listdir(opj(args.read_path, 'wav48'))
-    # remove speakers (p280, p315)
-    if 'p280' in speaker_list:
-        speaker_list.remove('p280')
+    # remove speaker (p315), technical issue
     if 'p315' in speaker_list:
         speaker_list.remove('p315')
         
