@@ -88,7 +88,10 @@ $ python ./src/preprocess/split-VoxCeleb-2-balancedtrials.py
 >Sample the trials with a balance to the label distribution.
 
 ## 3. Run Experiments
-General usage examples,
+Loggings, weights, and training configurations will be saved under [res/](/res) directory.  
+You can set [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) to use neptune logging experiments.
+
+* General usage examples,
 ```bash
 # Running directly through the command line
 $ CUDA_VISIBLE_DEVICES=0 python ./src/main.py train VCTK UniPool --use_pretrain --frz_pretrain --batch_size 128 --seed 9973 --backbone_cfg facebook/wav2vec2-base --nb_total_step 10000 --nb_steps_eval 1000;
@@ -97,7 +100,7 @@ $ CUDA_VISIBLE_DEVICES=0 python ./src/main.py train VCTK UniPool --use_pretrain 
 $ ./src/run.sh
 ```
 
-Adjusting hyperparameters directly by command.
+* Adjusting hyperparameters directly by command.
 ```bash
 $ python ./src/main.py -h
 usage: main.py [1-action] [2-data] [3-model] [-h]
@@ -122,7 +125,6 @@ keyword arguments:
   --kwarg KWARG              dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
->Configurations, weights, and train logging will be saved under [res/](/res) directory.
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
