@@ -88,6 +88,15 @@ $ python ./src/preprocess/split-VoxCeleb-2-balancedtrials.py
 >Sample the trials with a balance to the label distribution.
 
 ## 3. Run Experiments
+General Usage Examples
+```bash
+### Running directly through the command line
+$ CUDA_VISIBLE_DEVICES=0 python ./src/main.py train VCTK UniPool --use_pretrain --frz_pretrain --batch_size 128 --seed 9973 --backbone_cfg facebook/wav2vec2-base --nb_total_step 10000 --nb_steps_eval 1000;
+
+### Or you can utilize shell file for the multiple command.
+$ ./run.sh
+```
+
 ```bash
 $ python ./src/main.py -h
 usage: main.py [1-action] [2-data] [3-model] [-h]
