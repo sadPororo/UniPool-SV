@@ -93,24 +93,23 @@ $ python ./src/main.py -h
 usage: main.py [1-action] [2-data] [3-model] [-h]
 
 positional arguments (required):
-  [1] action:  {train,eval,infer,resume}
+  [1] action:  {train,eval}
   [2] data  :  {VCTK,LibriSpeech,Vox1-Base,Vox2-Base}
-  [3] model :  {ExploreWV2,FinetuneWV2,SincNet,ECAPA-TDNN,X-vector,VQspeaker}
+  [3] model :  {X-vector,ECAPA-TDNN,SincNet,ExploreWV2,FinetuneWV2,UniPool}
 
 optional arguments in general:
   -h, --help                 show this help message and exit
   --quickrun                 quick check for the running experiment on the modification, set as True if given
   --skiptest                 skip evaluation for the testset during training, set as True if given
   --neptune                  log experiment with neptune logger, set as True if given
-  --workers   WORKERS        the number of cpu-cores to use from dataloader (per each device), defaults to: 4
-  --device   [DEVICE0,]      specify the list of index numbers to use the cuda devices, defaults to: [0]
-  --seed      SEED           integer value of random number initiation, defaults to: 42
-  --eval_path EVAL_PATH      result path to load model on the "action" given as {eval,infer}, defaults to: None
-  --rsum_path RSUM_PATH      result path to resume the training process while the "action" given as "resume", defaults to: None
+  --workers     WORKERS      the number of cpu-cores to use from dataloader (per each device), defaults to: 4
+  --device     [DEVICE0,]    specify the list of index numbers to use the cuda devices, defaults to: [0]
+  --seed        SEED         integer value of random number initiation, defaults to: 42
+  --eval_path   EVAL_PATH    result path to load model on the "action" given as {eval}, defaults to: None
   --description DESCRIPTION  user parameter for specifying certain version, Defaults to "Untitled".
 
 keyword arguments:
-  --kwarg KWARG            dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
+  --kwarg KWARG              dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
 
