@@ -37,7 +37,7 @@ The datasets can be downloaded from here:
 ## 2. Data Preprocessing & Evaluation Split
 The following scripts are to preprocess audio data and build evaluation trials from each dataset.
 * _However, you can skip the **set split** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
-  Please check ([data/VCTK-Corpus](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech](data/LibriSpeech/preprocess) ; [data/VoxCeleb](data/VoxCeleb/preprocess))
+  Please check ([data/VCTK-Corpus/](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech/](data/LibriSpeech/preprocess) ; [data/VoxCeleb/](data/VoxCeleb/preprocess))
 
 #### VCTK CSTR Corpus  
 ```bash
@@ -122,7 +122,7 @@ keyword arguments:
   --kwarg KWARG              dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
->Configurations, weights, and train logging will be saved under [res/*](/res).
+>Configurations, weights, and train logging will be saved under [res/](/res) directory.
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
