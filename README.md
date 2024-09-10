@@ -89,7 +89,7 @@ $ python ./src/preprocess/split-VoxCeleb-2-balancedtrials.py
 
 ## 3. Run Experiments
 Loggings, weights, and training configurations will be saved under [res/](/res) directory.  
-You can set [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) to use neptune logging experiments.
+Set your [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) and add arguments **--neptune** in command line to use neptune logging experiments.
 
 * General usage examples,
 ```bash
