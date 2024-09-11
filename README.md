@@ -129,11 +129,11 @@ keyword arguments:
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
 ## 4. Evaluate
-The following command line will conduct the test evaluation with the best-validated model parameter from the configuration of **DIR_NAME**
+* The following command line will conduct the test evaluation with the best-validated model parameter from the configuration of **DIR_NAME**
 ```bash
 CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval _ _ --eval_path DIR_NAME;
 ```
-You can also conduct the cross-dataset evaluation by modifying the command like this.
+* You can also conduct the cross-dataset evaluation by modifying the command like this.
 ```bash
 CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval Vox1 _ --eval_path DIR_NAME;
 ```
