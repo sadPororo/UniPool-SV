@@ -89,7 +89,10 @@ $ python ./src/preprocess/split-VoxCeleb-2-balancedtrials.py
 
 ## 3. Run Experiments
 Loggings, weights, and training configurations will be saved under [res/](/res) directory.  
-Set your [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) and add arguments **--neptune** in command line to use neptune logging experiments.
+The result folder will be created in ```local-YYYYMMDD-HHmmss``` format by default.
+
+To use **neptune.ai** logging, set your configuration in [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) and add **--neptune** in command line.  
+The experiment ID created at your neptune.ai [project] will be the name of the output directory.
 
 * General usage examples,
 ```bash
@@ -125,6 +128,11 @@ keyword arguments:
   --kwarg KWARG              dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
+## 3-2. Evaluate
+```bash
+CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval _ _ --eval_path local-20240910-173558;
+```
+
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
