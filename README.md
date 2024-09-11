@@ -138,7 +138,15 @@ CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval _ _ --eval_path DIR_NAME;
 CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval Vox1 _ --eval_path DIR_NAME;
 ```
 
-
+## Citation  
+```bash
+@article{notyet,
+  title={Uploaded},
+  author={Kim, Jin Sob and Park, Hyun Joon and Shin, Wooseok and Han, Sung Won},
+  journal={Yet},
+  year={Still...}
+}
+```
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
