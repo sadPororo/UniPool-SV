@@ -1,0 +1,11 @@
+n_channels: 512
+
+# Referring to the paper, optimizer: Adam(), scheduler: CyclicLR() will be adopted.
+base_lr: 0.00000001  # arg -> CyclicLR()
+max_lr:  0.001       # arg -> CyclicLR()
+mode: 'triangular2'  # arg -> CyclicLR()
+num_cycles: 4        # the number of steps per cycle will be adapted, maintaining the cycles specified in the paper.
+
+# The option for the evaluation which derived from the reference below, see the details from the "model.py" & "trainer.py" descriptions
+#   https://github.com/clovaai/voxceleb_trainer/blob/master/DatasetLoader.py#L26 (originally named "num_eval")
+nb_eval_samples: 10

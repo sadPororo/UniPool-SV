@@ -1,0 +1,27 @@
+# The whole model optimize strategy & configurations are referred from the paper.
+# "Exploring wav2vec 2.0 on speaker verification and language identification." in Interspeech (2021).
+w2v_model: 'base'   # 'large' option is also avaliable
+num_layers: 1       # denotes the number of transformer layers to use from Wav2Vec 2.0.
+use_pretrain: False # if True, pretrained model will be loaded
+zshot_eval: False   # if True, zero-shot evaluation will be conducted before training.
+full_eval: False    # if True, evaluation(valid/test) will be conducted on every 'nb_steps_eval', else skip the evaluation until unfreeze the Wav2Vec 2.0
+
+# Referring to the paper, optimizer: Adam(), scheduler: OneCycleLR() will be adopted.
+max_lr: 0.005             # arg -> OneCycleLR()
+anneal_strategy: 'linear' # arg -> OneCycleLR()
+total_steps: 13000        # these are the official number of steps specified from the paper reference.
+warmup_steps: 6000        # In this reproduction, will use these numbers as threshold ratio distinguish the phase of learning rate scheduling.
+w2v_freeze_steps: 10000   # the same will be applied on distinguishing phase to freeze/unfreezing weights of transformer layers in Wav2Vec 2.0 model  
+
+bsz_ratio: 2  # if './config/common/training-base-config.yaml--eval_batch_size' is not configured, batch size at evaluation phase will be (train_batch_size / bsz_ratio)
+              # else '--eval_batch_size' is configured, batch size will be overriden at the evaluation phase.
+
+# The original paper (Fan, et al) has never mentioned the data augmentation.
+# However considering the fairness in comparison, this reproduction includes the implementation of "SpecAugment"
+# just the same as that described in Wav2Vec 2.0 paper (Baevski, et al; Sec. 4.3 Fine-tuning).
+# Configurations about spec-augment masking are referred from Wav2Vec 2.0 paper (Baevski, et al; Appendix B. Finetuning Setup)
+specaug: False
+mask_time_prob: 0.05
+mask_time_length: 10
+mask_feature_prob: 0.0016
+mask_feature_length: 64

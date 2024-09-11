@@ -1,0 +1,27 @@
+# Configurations relevant to model architecture
+w2v_model_sz: 'base'
+use_pretrain: False     # type '--use_pretrain' at the command line to utilize W2V 2.0 pretrained weights
+frozen_extractor: False # type '--frozen_extractor' at the command line to freeze the Convolution layer of W2V 2.0.
+variant: 'AAM'          # supports all 'CE', 'AAM', and 'BCE'
+
+# Configurations about spec-augment masking are referred from: 
+#   https://github.com/nikvaessen/w2v2-speaker/blob/master/config/network/ (wav2vec2_fc.yaml & wav2vec2_paired.yaml)
+mask_time_prob: 0.05
+mask_time_length: 10
+mask_feature_prob: 0.0
+mask_feature_length: 10
+
+# Model optimize strategy & configurations are referred from:
+#   https://github.com/nikvaessen/w2v2-speaker/tree/master/config/optim/algo
+#   https://github.com/nikvaessen/w2v2-speaker/blob/master/config/optim/schedule/tri_stage.yaml
+# Referring to the paper, scheduler: TriStage() will be adopted. 
+optimizer: 'Adam'    # 'SGD' is also available
+warmup_stage_ratio: 0.1    # arg -> TriStage()
+constant_stage_ratio: 0.4  # arg -> TriStage()
+decay_stage_ratio: 0.5     # arg -> TriStage()
+initial_lr: 0.000005       # arg -> TriStage()
+final_lr: 0.000005         # arg -> TriStage()
+base_lr: 0.  # Unless you set the 'base_lr' manually, it will be adjusted to the default value corresponding to the 'variant' as mentioned in the paper. 
+
+bsz_ratio: 2 # if './config/common/training-base-config.yaml--eval_batch_size' is not configured, batch size at evaluation phase will be (train_batch_size / bsz_ratio)
+              # else '--eval_batch_size' is configured, batch size will be overriden at the evaluation phase.

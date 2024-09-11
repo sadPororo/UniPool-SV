@@ -1,0 +1,43 @@
+# SincNet Configuration Referred from: https://github.com/mravanelli/SincNet/blob/master/cfg/SincNet_Librispeech.cfg (except 'fs')
+
+# [windowing] : "cw_len" will override "train_max_sec" in SincNet.
+fs: 16000
+cw_len: 375   # context window length: 375 ms == 0.375 sec
+cw_shift: 10  # context window shift : 10 ms  == 0.01 sec
+
+# [cnn] : CNN_net
+cnn_N_filt: [80,60,60]
+cnn_len_filt: [251,5,5]
+cnn_max_pool_len: [3,3,3]
+cnn_use_laynorm_inp: True
+cnn_use_batchnorm_inp: False
+cnn_use_laynorm: [True,True,True]
+cnn_use_batchnorm: [False,False,False]
+cnn_act: [relu,relu,relu]
+cnn_drop: [0.0,0.0,0.0]
+
+# [dnn] : DNN1_net
+fc_lay: [2048,2048,2048]
+fc_drop: [0.0,0.0,0.0]
+fc_use_laynorm_inp: True
+fc_use_batchnorm_inp: False
+fc_use_batchnorm: [True,True,True]
+fc_use_laynorm: [False,False,False]
+fc_act: [leaky_relu,linear,leaky_relu]
+
+# [class] : DNN2_net (Classfication Head)
+class_drop: [0.0,0.0]
+class_use_laynorm_inp: True
+class_use_batchnorm_inp: False
+class_use_batchnorm: [False]
+class_use_laynorm: [False]
+class_act: [softmax]
+
+# Optimizer RMSprop with lr: 1e-3, alpha: 0.95, and eps: 1e-7 (referred from the paper Sec. 4.2.)
+lr: 0.001
+alpha: 0.95
+eps: 0.0000001
+
+# The option for the evaluation which derived from the reference below, see the details from the "model.py" & "trainer.py" descriptions
+#   https://github.com/clovaai/voxceleb_trainer/blob/master/DatasetLoader.py#L26 (originally named "num_eval")
+nb_eval_samples: 10
