@@ -203,9 +203,12 @@ def gather_train_filepaths(config:dict):
             if subset not in subset_list:
                 continue
             sample_dict[s_id] = []
-            for f_name in os.listdir(opj(data_path, subset, s_id)):
-                if f_name.endswith('.wav'):
-                    sample_dict[s_id].append((id_2_label[s_id], opj(subset, s_id, f_name)))
+            
+            for chap_no in os.listdir(opj(data_path, subset, s_id)):
+                for f_name in os.listdir(opj(data_path, subset, s_id, chap_no)):
+                    
+                    if f_name.endswith('.wav'):
+                        sample_dict[s_id].append((id_2_label[s_id], opj(subset, s_id, chap_no, f_name)))
                     
     elif 'Vox1' in dataset:
         subset = 'vox1_dev_wav'

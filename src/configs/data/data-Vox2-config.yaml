@@ -1,0 +1,11 @@
+data_path: './data/VoxCeleb/preprocess/wav16'
+
+valid_trials: './data/VoxCeleb/preprocess/trials/trials-vox1.csv'
+test_trials:  './data/VoxCeleb/preprocess/trials/trials-vox2.csv'
+
+speaker_meta: './data/VoxCeleb/preprocess/speakers'
+nb_class_train: 5994
+nb_class_test: 118
+nb_class_val: 40
+
+train_hrs: 2360.06

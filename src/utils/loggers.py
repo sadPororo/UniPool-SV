@@ -126,7 +126,7 @@ def init_loggings(config:dict, is_master:bool=True):
     
     # Set/Create result path and local-logging path
     config['general']['exp_id']       = exp_id
-    config['general']['result_path']  = opj('../res', exp_id)
+    config['general']['result_path']  = opj('./res', exp_id)
     config['general']['logging_path'] = opj(config['general']['result_path'], 'training.log')
     os.makedirs(config['general']['result_path'], exist_ok=True)
     

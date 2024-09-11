@@ -25,7 +25,7 @@ def evaluate(config:dict, device_id:int=0):
     rank         = 0 if not is_ddp else dist.get_rank()    
     is_master    = rank==0    
     logging_path = config['general']['logging_path']
-    logger = resume_loggings(config, is_master)
+    # logger = resume_loggings(config, is_master)
     
     # Dataset
     eval_set = EvalDataset(config, mode='test')
@@ -71,19 +71,19 @@ def evaluate(config:dict, device_id:int=0):
             "\t        | FRR*   : {:.04f},     -           \n".format(eval_scr['FRR'].item()) +
             "\t        | FRR*   : {:.04f},     -           \n".format((eval_scr['FAR'].item() + eval_scr['FRR'].item()) / 2.), logging_path, is_master)
     
-    # Logging
-    if logger is not None and is_master:
+    # # Logging
+    # if logger is not None and is_master:
         
-        logger[f"{config['general']['eval_data']}/EER"].append(eval_scr['EER'])
-        logger[f"{config['general']['eval_data']}/EER_threshold"].append(eval_scr['EER_threshold'])
+    #     logger[f"{config['general']['eval_data']}/EER"].append(eval_scr['EER'])
+    #     logger[f"{config['general']['eval_data']}/EER_threshold"].append(eval_scr['EER_threshold'])
         
-        logger[f"{config['general']['eval_data']}/minDCF"].append(eval_scr['minDCF'])
-        logger[f"{config['general']['eval_data']}/DCF_threshold"].append(eval_scr['DCF_threshold'])
+    #     logger[f"{config['general']['eval_data']}/minDCF"].append(eval_scr['minDCF'])
+    #     logger[f"{config['general']['eval_data']}/DCF_threshold"].append(eval_scr['DCF_threshold'])
         
-        logger[f"{config['general']['eval_data']}/FAR*"].append(eval_scr['FAR'].item())
-        logger[f"{config['general']['eval_data']}/FRR*"].append(eval_scr['FRR'].item())
-        logger[f"{config['general']['eval_data']}/EER*"].append((eval_scr['FAR'].item() + eval_scr['FRR'].item()) / 2.)
-        logger.stop()
+    #     logger[f"{config['general']['eval_data']}/FAR*"].append(eval_scr['FAR'].item())
+    #     logger[f"{config['general']['eval_data']}/FRR*"].append(eval_scr['FRR'].item())
+    #     logger[f"{config['general']['eval_data']}/EER*"].append((eval_scr['FAR'].item() + eval_scr['FRR'].item()) / 2.)
+    #     logger.stop()
         
 
 def ddp_eval(rank:int, config:dict):
@@ -114,7 +114,7 @@ def evaluate_main(config):
              f"\t- evaluation trials : {config['general']['eval_data']} (testset comprises {config['data']['nb_class_test']} speakers)\n", logging_path)
     
     # Add package path
-    sys.path.append('./benchmarks/%s'%config['posarg']['model'])
+    sys.path.append('./src/benchmarks/%s'%config['posarg']['model'])
     
     # Set every random states on devices
     random_state_init(seed=config['general']['seed'], device_list=config['general']['device'])

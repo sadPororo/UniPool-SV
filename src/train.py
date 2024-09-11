@@ -103,7 +103,7 @@ def train_main(config:dict):
     """
    
     # Add package path
-    sys.path.append('./benchmarks/%s'%config['posarg']['model'])
+    sys.path.append('./src/benchmarks/%s'%config['posarg']['model'])
 
     # Set every random states on devices
     random_state_init(seed=config['general']['seed'], device_list=config['general']['device'])

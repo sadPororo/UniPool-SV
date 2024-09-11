@@ -18,20 +18,21 @@ def arginfo_help():
     """
     print('usage: main.py [1-action] [2-data] [3-model] [-h]')
     print('\npositional arguments (required):')
-    print('  [1] action:  %s'%("{train,eval,infer,resume}"))
+    # print('  [1] action:  %s'%("{train,eval,infer,resume}"))
+    print('  [1] action:  %s'%("{train,eval}"))    
     print('  [2] data  :  %s'%("{VCTK,LibriSpeech,Vox1-Base,Vox2-Base}"))
-    print('  [3] model :  %s'%("{ExploreWV2,FinetuneWV2,SincNet,ECAPA-TDNN,X-vector,VQspeaker}"))
+    print('  [3] model :  %s'%("{X-vector,ECAPA-TDNN,SincNet,ExploreWV2,FinetuneWV2,UniPool}"))
     
     print('\noptional arguments in general:')
-    print('  -h, --help                 show this help message and exit')
-    print('  --quickrun                 quick check for the running experiment on the modification, set as True if given')
-    print('  --skiptest                 skip evaluation for the testset during training, set as True if given')    
-    print('  --neptune                  log experiment with neptune logger, set as True if given')    
-    print('  --workers   WORKERS        the number of cpu-cores to use from dataloader (per each device), defaults to: 4')
-    print('  --device   [DEVICE0,]      specify the list of index numbers to use the cuda devices, defaults to: [0]')
-    print('  --seed      SEED           integer value of random number initiation, defaults to: 42')
-    print('  --eval_path EVAL_PATH      result path to load model on the "action" given as {eval,infer}, defaults to: None')
-    print('  --rsum_path RSUM_PATH      result path to resume the training process while the "action" given as "resume", defaults to: None')
+    print('  -h, --help                   show this help message and exit')
+    print('  --quickrun                   quick check for the running experiment on the modification, set as True if given')
+    print('  --skiptest                   skip evaluation for the testset during training, set as True if given')    
+    print('  --neptune                    log experiment with neptune logger, set as True if given')    
+    print('  --workers     WORKERS        the number of cpu-cores to use from dataloader (per each device), defaults to: 4')
+    print('  --device     [DEVICE0,]      specify the list of index numbers to use the cuda devices, defaults to: [0]')
+    print('  --seed        SEED           integer value of random number initiation, defaults to: 42')
+    print('  --eval_path   EVAL_PATH      result path to load model on the "action" given as {eval,infer}, defaults to: None')
+    # print('  --rsum_path RSUM_PATH      result path to resume the training process while the "action" given as "resume", defaults to: None')
     print('  --description DESCRIPTION  user parameter for specifying certain version, Defaults to "Untitled".')    
     
     print('\nkeyword arguments:')
@@ -117,7 +118,7 @@ def get_config():
     assert sys.argv[1] in ['train', 'eval', 'infer', 'resume'], "\n\tGiven the 1st argument (action) '%s' is not supported, try among {train,eval,infer,resume}"%(sys.argv[1])
     config['posarg']['action'] = sys.argv[1] 
     if sys.argv[1] == 'train':
-        assert sys.argv[2] in ['VCTK', 'LibriSpeech', 'Vox1-Base', 'Vox2-Base', '_'], "\n\tGiven the 2nd argument (data) '%s' is not supported, try among {VCTK,LibriSpeech,Vox1-Base,Vox2-Base}"%(sys.argv[2])
+        assert sys.argv[2] in ['VCTK', 'LibriSpeech', 'Vox1', 'Vox2', '_'], "\n\tGiven the 2nd argument (data) '%s' is not supported, try among {VCTK,LibriSpeech,Vox1,Vox2}"%(sys.argv[2])
         # assert sys.argv[3] in ['ExploreWV2', 'FinetuneWV2', 'SincNet', 'ECAPA-TDNN', 'X-vector', '_'], "\n\tGiven the 3rd argument (model) '%s' is not supported, try among {ExploreWV2,FinetuneWV2,SincNet}"%(sys.argv[3])
     else: pass
     config['posarg']['data']   = sys.argv[2]
@@ -141,17 +142,17 @@ def get_config():
 
     # load data/model/train hyperparameters corresponding to the positional arguments
     if config['posarg']['data'] != '_':
-        config['data']  = hypload('../configs/data/data-%s-config.yaml'%(config['posarg']['data']))
+        config['data']  = hypload('./src/configs/data/data-%s-config.yaml'%(config['posarg']['data']))
     if config['posarg']['model'] != '_':
-        config['model'] = hypload('./benchmarks/%s/model-config.yaml'%(config['posarg']['model']))       
-    config['common'] = hypload('../configs/common/training-base-config.yaml')
+        config['model'] = hypload('./src/benchmarks/%s/model-config.yaml'%(config['posarg']['model']))       
+    config['common'] = hypload('./src/configs/common/training-base-config.yaml')
 
     # update the configurations if the argument is passed
     config = argupdate(config, NUM_POS_ARG)
     
     # load neptune configuration if '--neptune' is True
     if config['general']['neptune']:
-        config['neptune'] = hypload('../configs/neptune/neptune-logger-config.yaml')
+        config['neptune'] = hypload('./src/configs/neptune/neptune-logger-config.yaml')
         
     # check constraints depending on the 'action'
     if config['posarg']['action'] == 'train':
@@ -161,7 +162,7 @@ def get_config():
     elif config['posarg']['action'] == 'eval':
         assert (config['general']['eval_path']!=''), f"\n\tGiven positional argument [1] (action) 'eval' requires '--eval_path' to be set"
         assert (config['general']['rsum_path']==''), f"\n\tGiven positional argument [1] (action) 'eval' does not support using argument '--rsum_path'"
-        assert (isdir(f"../res/{config['general']['eval_path']}")), f"\n\tGiven '--eval_path' {config['general']['eval_path']} is not a directory"
+        assert (isdir(f"./res/{config['general']['eval_path']}")), f"\n\tGiven '--eval_path' {config['general']['eval_path']} is not a directory"
         
     elif config['posarg']['action'] == 'infer':
         raise NotImplementedError('infer')
@@ -170,7 +171,7 @@ def get_config():
         assert (config['general']['rsum_path']!=''), f"\n\tGiven positional argument [1] (action) 'resume' requires '--rsum_path' to be set"
         assert (config['general']['eval_path']==''), f"\n\tGiven positional argument [1] (action) 'resume' does not support using argument '--eval_path'"
         assert (isdir(config['general']['rsum_path'])), f"\n\tGiven '--rsum_path' {config['general']['rsum_path']} is not a directory"
-    
+            
     return config
 
 
@@ -178,20 +179,21 @@ def load_eval_config(config):
     """ """
     # load the configuration
     load_path = config['general']['eval_path']
-    assert isdir(f'../res/{load_path}'), f"\n\tGiven '--eval_path' {load_path} is not a directory"
-    load_conf = hypload(f'../res/{load_path}/config.yaml')
+    assert isdir(f'./res/{load_path}'), f"\n\tGiven '--eval_path' {load_path} is not a directory"
+    load_conf = hypload(f'./res/{load_path}/config.yaml')
     
     # update positional argument (action)
     load_conf['posarg']['action'] = config['posarg']['action']
     
     # update general argument (device)
     load_conf['general']['device'] = config['general']['device']
-    
+    load_conf['general']['quickrun'] = False
+
     # update the evaluation data path
     if config['general']['eval_data'] != '':
         load_conf['general']['eval_data'] = config['general']['eval_data']
         
-        data_conf = hypload('../configs/data/data-%s-config.yaml'%(config['general']['eval_data']))
+        data_conf = hypload('./src/configs/data/data-%s-config.yaml'%(config['general']['eval_data']))
         load_conf['data']['data_path']     = data_conf['data_path']
         load_conf['data']['valid_trials']  = data_conf['valid_trials']
         load_conf['data']['test_trials']   = data_conf['test_trials']
