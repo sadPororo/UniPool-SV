@@ -36,8 +36,8 @@ The datasets can be downloaded from here:
 
 ## 2. Data Preprocessing & Evaluation Split
 The following scripts are to preprocess audio data and build evaluation trials from each dataset.
-* _However, you can skip the **set split** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
-  Please check ([data/VCTK-Corpus/](data/VCTK-Corpus/preprocess) ; [data/LibriSpeech/](data/LibriSpeech/preprocess) ; [data/VoxCeleb/](data/VoxCeleb/preprocess))
+* _However, you can skip the **"# set split"** part, since we have uploaded the ready-made splits and trials used for our experiments in the file tree._  
+  Please check the contents in [data/VCTK-Corpus/](data/VCTK-Corpus/preprocess), [data/LibriSpeech/](data/LibriSpeech/preprocess), [data/VoxCeleb/](data/VoxCeleb/preprocess) [;speakers/, ;trials/] first.
 
 #### VCTK CSTR Corpus  
 ```bash
@@ -92,7 +92,7 @@ Loggings, weights, and training configurations will be saved under [res/](/res) 
 The result folder will be created in ```local-YYYYMMDD-HHmmss``` format by default.
 
 To use **neptune.ai** logging, set your configuration in [src/configs/neptune/neptune-logger-config.yaml](/src/configs/neptune/neptune-logger-config.yaml) and add **--neptune** in command line.  
-The experiment ID created at your neptune.ai [project] will be the name of the output directory.
+The experiment ID created at your **neptune.ai [project]** will be the name of the output directory.
 
 * General usage examples,
 ```bash
