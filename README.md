@@ -110,7 +110,7 @@ usage: main.py [1-action] [2-data] [3-model] [-h]
 
 positional arguments (required):
   [1] action:  {train,eval}
-  [2] data  :  {VCTK,LibriSpeech,Vox1-Base,Vox2-Base}
+  [2] data  :  {VCTK,LibriSpeech,Vox1,Vox2}
   [3] model :  {X-vector,ECAPA-TDNN,SincNet,ExploreWV2,FinetuneWV2,UniPool}
 
 optional arguments in general:
@@ -128,10 +128,16 @@ keyword arguments:
   --kwarg KWARG              dynamically modifies any of the hyperparameters declared in ../configs/.../...*.yaml or ./benchmarks/...*.yaml
   (e.g.) --lr 0.001 --batch_size 64 --nb_total_step 25000 ...
 ```
-## 3-2. Evaluate
+## 4. Evaluate
+The following command line will conduct the test evaluation with the best-validated model parameter from the configuration of **DIR_NAME**
 ```bash
-CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval _ _ --eval_path local-20240910-173558;
+CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval _ _ --eval_path DIR_NAME;
 ```
+You can also conduct the cross-dataset evaluation by modifying the command like this.
+```bash
+CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval Vox1 _ --eval_path DIR_NAME;
+```
+
 
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
