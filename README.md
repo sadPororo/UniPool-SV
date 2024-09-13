@@ -163,5 +163,5 @@ As we commented from each comparison ```src/benchmarks/``` models, the projects 
 * ```FinetuneWV2/```: [nikvaessen/w2v2-speaker](https://github.com/nikvaessen/w2v2-speaker) (Official)
 
 Some of the ```src/utils/``` are quoted from below.  
-* ```metrics.py;(EER, minDCF)```: [speechbrain/utils/metric_stats.py](https://github.com/speechbrain/speechbrain/blob/develop/speechbrain/utils/metric_stats.py)  
+* ```metrics.py```: [speechbrain/utils/metric_stats.py](https://github.com/speechbrain/speechbrain/blob/develop/speechbrain/utils/metric_stats.py)  
 * ```sampler.py```: [SeungjunNah/DeepDeblur-PyTorch/src/data/sampler.py](https://github.com/SeungjunNah/DeepDeblur-PyTorch/blob/master/src/data/sampler.py)
