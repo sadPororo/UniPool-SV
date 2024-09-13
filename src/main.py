@@ -17,10 +17,3 @@ if __name__ == "__main__":
         config = load_eval_config(config)
         evaluate_main(config)
                 
-    # elif CONFIG['posarg']['action'] == 'infer':
-    #     raise NotImplementedError('infer')
-    
-    # elif CONFIG['posarg']['action'] == 'resume':
-    #     logger = resume_loggings(CONFIG)
-    #     CONFIG = load_and_transfer_config(CONFIG, logger=logger['local'])
-    
