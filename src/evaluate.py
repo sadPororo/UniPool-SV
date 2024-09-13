@@ -98,12 +98,6 @@ def ddp_eval(rank:int, config:dict):
 
 def evaluate_main(config):
     
-    # if config['posarg']['model'] in ['ExploreWV2'] or (config['posarg']['data'] == 'VCTK' and config['general']['exp_id'] in ['SPKID-719', 'SPKID-720', 'SPKID-636','SPKID-721']):
-    #     pass
-    # else:
-    #     print(f"skipping {config['general']['exp_id']}: {config['posarg']['model']}")
-    #     sys.exit()
-    
     # Print train/test meta configuration
     logging_path = config['general']['logging_path']    
     printlog('\n' + 
