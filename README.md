@@ -150,3 +150,14 @@ CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval Vox1 _ --eval_path DIR_NAME;
 
 ## License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This repository is released under the [MIT](https://choosealicense.com/licenses/mit/) license.
+
+As we commented from each comparison ```model.py``` file, the projects below are referred to reproduce the implementations.
+
+**Open to the public**  
+* ```X-vector```: [cvqluu/TDNN](https://github.com/cvqluu/TDNN)
+
+**Released under MIT license**  
+* ```SincNet```    : [mravanelli/SincNet](https://github.com/mravanelli/SincNet) (Official)
+* ```ECAPA-TDNN``` : [TaoRuijie/ECAPA-TDNN](https://github.com/TaoRuijie/ECAPA-TDNN)  
+* ```FinetuneWV2```: [nikvaessen/w2v2-speaker](https://github.com/nikvaessen/w2v2-speaker) (Official)
+
