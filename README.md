@@ -140,11 +140,11 @@ CUDA_VISIBLE_DEVICES=0 python ./src/main.py eval Vox1 _ --eval_path DIR_NAME;
 
 ## Citation  
 ```bash
-@article{notyet,
-  title={Uploaded},
+@article{kim2024universal,
+  title={Universal Pooling Method of Multi-layer Features from Pretrained Models for Speaker Verification},
   author={Kim, Jin Sob and Park, Hyun Joon and Shin, Wooseok and Han, Sung Won},
-  journal={Yet},
-  year={Still...}
+  journal={arXiv preprint arXiv.2409.07770},
+  year={2024}
 }
 ```
 
