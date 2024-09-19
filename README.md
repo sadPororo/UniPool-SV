@@ -1,4 +1,4 @@
-# Universal Pooling Method of Multi-layer Features from Pretrained Models for Speaker Verification
+# Universal Pooling Method of Multi-layer Features from Pretrained Models for Speaker Verification (2024)
 We share a PyTorch implementation of our experiments here.
 
 The figure below overviews the proposed framework to pool speaker embedding from the multi-layered nature of pre-trained models.
